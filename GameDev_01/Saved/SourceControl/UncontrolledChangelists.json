@@ -1,0 +1,18 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/Utilizador/Documents/GitHub/Unreal-Engine/GameDev_01/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/Utilizador/Documents/GitHub/Unreal-Engine/GameDev_01/Content/StarterContent/Maps/Minimal_Default.umap",
+				"C:/Users/Utilizador/Documents/GitHub/Unreal-Engine/GameDev_01/Content/StarterContent/Blueprints/Assets/BP_Projectile.uasset",
+				"C:/Users/Utilizador/Documents/GitHub/Unreal-Engine/GameDev_01/Content/StarterContent/Blueprints/Assets/BP_Ammo.uasset",
+				"C:/Users/Utilizador/Documents/GitHub/Unreal-Engine/GameDev_01/Content/BP_Ammo.uasset",
+				"C:/Users/Utilizador/Documents/GitHub/Unreal-Engine/GameDev_01/Content/My_Blueprints/BP_Ammo.uasset",
+				"C:/Program Files/Epic Games/UE_5.2/Engine/Content/BasicShapes/Sphere.uasset"
+			]
+		}
+	]
+}
