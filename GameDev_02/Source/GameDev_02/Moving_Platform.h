@@ -26,7 +26,4 @@ public:
 	UPROPERTY(EditAnywhere) // Tells UE that this variable needs to appear in blueprints
 	FVector MyVector = FVector(5,2,5);
 
-	UPROPERTY(EditAnywhere) // Tells UE that this variable needs to appear in blueprints
-	float MyX;
-
 };

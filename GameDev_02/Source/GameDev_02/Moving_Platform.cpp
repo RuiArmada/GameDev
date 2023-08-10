@@ -23,9 +23,25 @@ void AMoving_Platform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	MyVector.Y = MyVector.Y + 1; // Actor will move 1 unit up every frame
+	/*
+	
+		1. Move platform forward
+			- Get current location
+			- Add vector to location
+			- Set location
+		2. Send platform back if 2 far
+			- Check how far
+			- Reverese direction of motion
+	
+	*/
 
-	SetActorLocation(MyVector);
+	// ## 1. ##
+
+	FVector CurrentLocation = GetActorLocation();
+
+	CurrentLocation.X = CurrentLocation.X + 1;
+
+	SetActorLocation(CurrentLocation);
 
 }
 
