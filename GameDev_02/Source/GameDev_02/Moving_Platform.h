@@ -24,12 +24,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere) // Tells UE that this variable needs to appear in blueprints
-	int32 MyInt = 99;
+	FVector MyVector = FVector(5,2,5);
 
 	UPROPERTY(EditAnywhere) // Tells UE that this variable needs to appear in blueprints
-	float MyFloat = 5.99;
-
-	UPROPERTY(EditAnywhere) // Tells UE that this variable needs to appear in blueprints
-	float MyBool = true;
+	float MyX;
 
 };

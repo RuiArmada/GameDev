@@ -23,5 +23,9 @@ void AMoving_Platform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MyVector.Y = MyVector.Y + 1; // Actor will move 1 unit up every frame
+
+	SetActorLocation(MyVector);
+
 }
 
