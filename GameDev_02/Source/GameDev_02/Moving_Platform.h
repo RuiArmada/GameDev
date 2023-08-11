@@ -23,7 +23,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere) // Tells UE that this variable needs to appear in blueprints
-	FVector MyVector = FVector(5,2,5);
+	UPROPERTY(EditAnywhere, Category="Moving Platform") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	FVector Velocity = FVector(100, 0, 0); // The velocity of the platform	
+
+	UPROPERTY(EditAnywhere, Category = "Moving Platform") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	float MaxDistance = 100; // The maximum distance the platform will move
+
+	UPROPERTY(VisibleAnywhere, Category = "Moving Platform") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	float DistanceMoved = 0; // The distance the platform has moved
+
+	FVector StartLocation; // The location of the platform when it starts moving
 
 };

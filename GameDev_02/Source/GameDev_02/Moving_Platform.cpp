@@ -15,6 +15,8 @@ AMoving_Platform::AMoving_Platform()
 void AMoving_Platform::BeginPlay()
 {
 	Super::BeginPlay();
+
+	StartLocation = GetActorLocation(); // Sets the start location to the location of the platform when it starts moving
 	
 }
 
@@ -31,17 +33,27 @@ void AMoving_Platform::Tick(float DeltaTime)
 			- Set location
 		2. Send platform back if 2 far
 			- Check how far
-			- Reverese direction of motion
+			- Reverse direction of motion
 	
 	*/
 
 	// ## 1. ##
 
-	FVector CurrentLocation = GetActorLocation();
+	FVector CurrentLocation = GetActorLocation(); // Gets location of the platform
 
-	CurrentLocation.X = CurrentLocation.X + 1;
+	CurrentLocation = CurrentLocation + (Velocity * DeltaTime); // Adds the velocity to the location, multiplied by DeltaTime to make it framerate independent
 
-	SetActorLocation(CurrentLocation);
+	SetActorLocation(CurrentLocation); // Sets the location of the platform to the new location
+
+	// ## 2. ##
+
+	DistanceMoved = FVector::Dist(StartLocation, CurrentLocation); // Gets the distance between the start location and the current location
+
+	if (DistanceMoved >= MaxDistance) // Checks if the distance moved is greater than or equal to the maximum distance
+	{
+		Velocity = Velocity * -1; // Reverses the direction of the velocity
+		StartLocation = CurrentLocation; // Sets the start location to the current location
+	}
 
 }
 
