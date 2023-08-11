@@ -49,10 +49,16 @@ void AMoving_Platform::Tick(float DeltaTime)
 
 	DistanceMoved = FVector::Dist(StartLocation, CurrentLocation); // Gets the distance between the start location and the current location
 
-	if (DistanceMoved >= MaxDistance) // Checks if the distance moved is greater than or equal to the maximum distance
+	if (DistanceMoved > MaxDistance) // Checks if the distance moved is greater than or equal to the maximum distance
 	{
+
+		FVector MoveDirection = Velocity.GetSafeNormal(); // Gets the direction of the velocity
+		
+		StartLocation = StartLocation + (MoveDirection * MaxDistance); // Sets the start location to the current location
+
+		SetActorLocation(StartLocation); // Sets the location of the platform to the new start location
+
 		Velocity = Velocity * -1; // Reverses the direction of the velocity
-		StartLocation = CurrentLocation; // Sets the start location to the current location
 	}
 
 }
