@@ -23,15 +23,31 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, Category="Moving Platform") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
-	FVector Velocity; // The velocity of the platform	
+private:
 
-	UPROPERTY(EditAnywhere, Category = "Moving Platform") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	UPROPERTY(EditAnywhere, Category="Moving") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	FVector MoveVelocity; // The velocity of the platform	
+
+	UPROPERTY(EditAnywhere, Category = "Moving") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
 	float MaxDistance; // The maximum distance the platform will move
 
-	UPROPERTY(VisibleAnywhere, Category = "Moving Platform") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	UPROPERTY(EditAnywhere, Category = "Rotate") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
+	FRotator RotationVelocity; // The rate at which the platform will rotate
+	
+	UPROPERTY(VisibleAnywhere, Category = "Moving") // Tells UE that this variable needs to appear in blueprints, also, sets the variable in a costum category
 	float DistanceMoved = 0; // The distance the platform has moved
 
 	FVector StartLocation; // The location of the platform when it starts moving
+
+	float GetDistanceMoved() const; // Function to get the distance the platform has moved
+
+	bool SholdReturnPlatform() const; // If true, the platform will return to its start location
+
+	void ProcessPlatformReturn(); // Function to process the platform returning to its start location
+
+	void ProcessMovement(float DeltaTime); // Function to process the movement of the platform
+		
+	void MovePlatform(float DeltaTime); // Function to move the platform
 	
+	void RotatePlatform(float DeltaTime); // Function to rotate the platform
 };
